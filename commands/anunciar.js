@@ -1,16 +1,16 @@
 const Discord = require("discord.js")
 
 module.exports = {
-    name: "anuncio", // Coloque o nome do comando do arquivo
+    name: "anunciar", // Coloque o nome do comando do arquivo
     aliases: ["anúncio"], // Coloque sinônimos aqui
 
-    run: async(client, interaction, args) => {
+    run: async(client, message, args) => {
 
         if (!message.member.permissions.has("ADMINISTRATOR")) {
             message.reply(`Você não possui a permissão de \`Administrador\` para poder utilziar este comando.`)
     } else {
         let embed_1 = new Discord.MessageEmbed()
-        .setColor("BLUE")
+        .setColor("RANDOM")
         .setDescription(`${message.author} Qual será o chat para enviar o anúncio?`);
 
         let embed_erro = new Discord.MessageEmbed()
@@ -18,11 +18,11 @@ module.exports = {
         .setDescription(`${message.author} Não foi possível reconhecer um canal de texto.`);
 
         let embed_2 = new Discord.MessageEmbed()
-        .setColor("BLUE")
+        .setColor("RANDOM")
         .setDescription(`${message.author} Qual será o título do anúncio?`);
 
         let embed_3 = new Discord.MessageEmbed()
-        .setColor("BLUE")
+        .setColor("RANDOM")
         .setDescription(`${message.author} Qual será a descrição do anúncio?`);
 
         message.reply({ embeds: [embed_1] }).then(msg => {
@@ -57,7 +57,6 @@ module.exports = {
                                             .setColor("BLUE")
                                             .setTimestamp(new Date)
                                             .setThumbnail(message.guild.iconURL({ dynamic: true }))
-                                            .setFields(members.guild.roles.cache.get("977807527104368690"))
                                             .setAuthor({ name: 'HalleyNetwork', iconURL: 'https://i.imgur.com/MQGfCSZ.png', url: 'https://halleynetwork.com.br' })
                                             .setFooter({ text: 'jogar.halleynetwork.com.br', iconURL: 'https://i.imgur.com/MQGfCSZ.png' })
                                             .setTitle(titulo)
